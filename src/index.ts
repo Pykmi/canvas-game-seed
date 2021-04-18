@@ -1,9 +1,14 @@
+import { canvas, ctx } from "./canvas";
 import "./styles.css";
 
-window.addEventListener("load", () => {
-  const header = document.createElement("h1");
-  header.innerText = "Webpack❤️TS";
+let score = 0;
+let frames = 0;
 
-  const body = document.querySelector("body");
-  body.appendChild(header);
-});
+const animate = () => {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  frames += 1;
+
+  requestAnimationFrame(animate);
+};
+
+animate();
